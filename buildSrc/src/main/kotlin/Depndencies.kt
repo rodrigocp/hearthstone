@@ -1,10 +1,15 @@
 object Dependencies {
     val coreKTX               by lazy { "androidx.core:core-ktx:${Versions.coreKTX}" }
+    val kotlinCoroutinesCore  by lazy { "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutinesCore}" }
     val lifecycleRuntimeKTX   by lazy { "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleRuntimeKTX}" }
     val composeUI             by lazy { "androidx.compose.ui:ui:${Versions.compose}" }
     val composeActivity       by lazy { "androidx.activity:activity-compose:${Versions.composeActivity}" }
     val composeToolingPreview by lazy { "androidx.compose.ui:ui-tooling-preview:${Versions.compose}" }
     val material3             by lazy { "androidx.compose.material3:material3:${Versions.material3}" }
+
+    val moshiKotlin           by lazy { "com.squareup.moshi:moshi-kotlin:${Versions.moshiKotlin}" }
+    val moshiConverter        by lazy { "com.squareup.retrofit2:converter-moshi:${Versions.moshiConverter}" }
+    val loggingInterceptor    by lazy { "com.squareup.okhttp3:logging-interceptor:${Versions.loggingInterceptor}" }
 
     // Tests
     val junit                 by lazy { "junit:junit:${Versions.junit}" }
