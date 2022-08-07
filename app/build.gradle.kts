@@ -38,12 +38,12 @@ android {
         }
     }
 
-    buildFeatures { // Enables Jetpack Compose for this module
+    buildFeatures {
         compose = true
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.1.1"
+        kotlinCompilerExtensionVersion = Versions.compose
     }
 }
 
