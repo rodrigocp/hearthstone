@@ -1,0 +1,3 @@
+rootProject.name = "Hearthstone"
+include ':app'
+include ':network'
