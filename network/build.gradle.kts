@@ -24,9 +24,22 @@ android {
         sourceCompatibility            = JavaVersion.VERSION_1_8
         targetCompatibility            = JavaVersion.VERSION_1_8
     }
+
+    buildTypes {
+        release {
+            buildConfigField("String", "BASE_URL", "\"https://omgvamp-hearthstone-v1.p.rapidapi.com/\"")
+            buildConfigField("Long", "CACHE_SIZE", "102400L")
+        }
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://omgvamp-hearthstone-v1.p.rapidapi.com/\"")
+            buildConfigField("Long", "CACHE_SIZE", "102400L")
+        }
+    }
 }
 
 dependencies {
+    implementation(project(":core"))
+    implementation(project(":commons"))
     implementation(Dependencies.coreKTX)
     implementation(Dependencies.kotlinCoroutinesCore)
     implementation(Dependencies.moshiKotlin)
