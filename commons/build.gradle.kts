@@ -29,7 +29,7 @@ android {
 dependencies {
     implementation(project(":core"))
     implementation(Dependencies.coreKTX)
-    implementation(Dependencies.kotlinCoroutinesCore)
+    implementation(Dependencies.koin)
 
     testImplementation(Dependencies.junit)
     testImplementation(Dependencies.mockk)
