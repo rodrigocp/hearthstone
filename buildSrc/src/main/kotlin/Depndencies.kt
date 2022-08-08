@@ -11,6 +11,8 @@ object Dependencies {
     val moshiConverter        by lazy { "com.squareup.retrofit2:converter-moshi:${Versions.moshiConverter}" }
     val loggingInterceptor    by lazy { "com.squareup.okhttp3:logging-interceptor:${Versions.loggingInterceptor}" }
 
+    val koin                  by lazy { "io.insert-koin:koin-android:${Versions.koin}" }
+
     // Tests
     val junit                 by lazy { "junit:junit:${Versions.junit}" }
     val androidJunitExt       by lazy { "androidx.test.ext:junit:${Versions.androidJunitExt}" }

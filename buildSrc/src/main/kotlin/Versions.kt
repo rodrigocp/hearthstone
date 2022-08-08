@@ -16,6 +16,8 @@ object Versions {
     const val moshiConverter       = "2.8.1"
     const val loggingInterceptor   = "4.9.0"
 
+    const val koin                 = "3.2.0"
+
     // Tests
     const val mockk                = "1.12.5"
     const val junit                = "4.13.2"
