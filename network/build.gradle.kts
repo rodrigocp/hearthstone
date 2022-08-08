@@ -45,6 +45,7 @@ dependencies {
     implementation(Dependencies.moshiKotlin)
     implementation(Dependencies.moshiConverter)
     implementation(Dependencies.loggingInterceptor)
+    implementation(Dependencies.koin)
 
     testImplementation(Dependencies.junit)
     testImplementation(Dependencies.mockk)
