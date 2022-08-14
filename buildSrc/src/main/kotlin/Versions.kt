@@ -2,18 +2,20 @@ object Versions {
 
     // Plugins
     const val gradle               = "7.2.2"
-    const val kotlin               = "1.6.10"
+    const val kotlin               = "1.7.0"
 
     // Dependencies
     const val coreKTX              = "1.7.0"
     const val kotlinCoroutinesCore = "1.6.2"
-    const val lifecycleRuntimeKTX  = "2.3.1"
-    const val compose              = "1.1.1"
-    const val composeActivity      = "1.3.1"
-    const val material3            = "1.0.0-alpha01"
+    const val compose              = "1.2.0"
+    const val composeViewModel     = "2.4.1"
+    const val composeNavigation    = "2.5.1"
+    const val material3            = "1.0.0-alpha15"
+    const val coil                 = "2.1.0"
 
-    const val moshiKotlin          = "1.8.0"
-    const val moshiConverter       = "2.8.1"
+    const val retrofit             = "2.9.0"
+    const val gson                 = "2.8.7"
+    const val gsonConverter        = "2.5.0"
     const val loggingInterceptor   = "4.9.0"
 
     const val koin                 = "3.2.0"

@@ -1,5 +1,5 @@
 object Configuration {
-    const val compileSDKVersion = 31
+    const val compileSDKVersion = 32
     const val minSDKVersion     = 21
     const val targetSDKVersion  = 31
     const val versionCode       = 1
