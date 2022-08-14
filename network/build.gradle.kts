@@ -29,10 +29,22 @@ android {
         release {
             buildConfigField("String", "BASE_URL", "\"https://omgvamp-hearthstone-v1.p.rapidapi.com/\"")
             buildConfigField("Long", "CACHE_SIZE", "102400L")
+
+            buildConfigField("String", "API_KEY_NAME", "\"X-RapidAPI-Key\"")
+            buildConfigField("String", "API_KEY_VALUE", "\"5c39d3a6cfmsh6fe90c3e729dea4p12dd74jsn7b615266bb73\"")
+
+            buildConfigField("String", "API_HOST_NAME", "\"X-RapidAPI-Host\"")
+            buildConfigField("String", "API_HOST_VALUE", "\"omgvamp-hearthstone-v1.p.rapidapi.com\"")
         }
         debug {
             buildConfigField("String", "BASE_URL", "\"https://omgvamp-hearthstone-v1.p.rapidapi.com/\"")
             buildConfigField("Long", "CACHE_SIZE", "102400L")
+
+            buildConfigField("String", "API_KEY_NAME", "\"X-RapidAPI-Key\"")
+            buildConfigField("String", "API_KEY_VALUE", "\"5c39d3a6cfmsh6fe90c3e729dea4p12dd74jsn7b615266bb73\"")
+
+            buildConfigField("String", "API_HOST_NAME", "\"X-RapidAPI-Host\"")
+            buildConfigField("String", "API_HOST_VALUE", "\"omgvamp-hearthstone-v1.p.rapidapi.com\"")
         }
     }
 }
@@ -42,10 +54,10 @@ dependencies {
     implementation(project(":commons"))
     implementation(Dependencies.coreKTX)
     implementation(Dependencies.kotlinCoroutinesCore)
-    implementation(Dependencies.moshiKotlin)
-    implementation(Dependencies.moshiConverter)
-    implementation(Dependencies.loggingInterceptor)
     implementation(Dependencies.koin)
+    implementation(Dependencies.retrofit)
+    implementation(Dependencies.gsonConverter)
+    implementation(Dependencies.loggingInterceptor)
 
     testImplementation(Dependencies.junit)
     testImplementation(Dependencies.mockk)
