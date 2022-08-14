@@ -61,6 +61,7 @@ dependencies {
 
     testImplementation(Dependencies.junit)
     testImplementation(Dependencies.mockk)
+    testImplementation("org.json:json:20210307")
     androidTestImplementation(Dependencies.mockkAndroid)
     androidTestImplementation(Dependencies.androidJunitExt)
 }

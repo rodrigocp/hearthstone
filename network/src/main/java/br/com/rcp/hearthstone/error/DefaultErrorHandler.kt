@@ -53,7 +53,7 @@ class DefaultErrorHandler(private val provider: StringProvider) : ErrorHandler {
                 JSONObject(it).getString(parameter)
             } ?: ""
         } catch (exception: JSONException) {
-            exception.message.toString()
+            ""
         }
     }
 }
