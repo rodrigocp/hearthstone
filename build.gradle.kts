@@ -1,8 +1,4 @@
 buildscript {
-    extra.apply{
-        set("kotlinVersion", "1.5.31")
-    }
-
     repositories {
         google()
         mavenCentral()
