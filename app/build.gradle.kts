@@ -42,12 +42,21 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
+    implementation(project(":commons"))
+    implementation(project(":network"))
+    implementation(project(":cardservice:domain"))
+    implementation(project(":cardservice:data"))
+    implementation(project(":cardfeature"))
+
     implementation(Dependencies.coreKTX)
-    implementation(Dependencies.composeUI)
     implementation(Dependencies.material3)
+    implementation(Dependencies.animations)
+    implementation(Dependencies.composeUI)
     implementation(Dependencies.composeToolingPreview)
-    implementation(Dependencies.lifecycleRuntimeKTX)
-    implementation(Dependencies.composeActivity)
+    implementation(Dependencies.composeViewModel)
+    implementation(Dependencies.composeNavigation)
+    implementation(Dependencies.koin)
 
     testImplementation(Dependencies.junit)
     testImplementation(Dependencies.mockk)

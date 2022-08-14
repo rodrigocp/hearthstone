@@ -6,23 +6,29 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import br.com.rcp.hearthstone.cardfeature.presentation.detail.CardDetailView
+import br.com.rcp.hearthstone.cardfeature.presentation.list.CardListView
+import br.com.rcp.hearthstone.repository.CardsRepository
 import br.com.rcp.hearthstone.ui.theme.HearthstoneTheme
+import org.koin.android.ext.android.inject
 
 class MainActivity : ComponentActivity() {
+    val test : CardsRepository by inject()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             HearthstoneTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    MainNavigationHost()
                 }
             }
         }
@@ -30,14 +36,20 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
+fun MainNavigationHost(
+    modifier: Modifier = Modifier,
+    controller: NavHostController = rememberNavController(),
+    start: String = "cardListView"
+) {
+    NavHost(
+        modifier = modifier, navController = controller, startDestination = start
+    ) {
+        composable("cardListView") {
+            CardListView(controller)
+        }
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    HearthstoneTheme {
-        Greeting("Android")
+        composable("cardDetail/{id}") {
+            CardDetailView(it.arguments?.getString("id") ?: "")
+        }
     }
 }
