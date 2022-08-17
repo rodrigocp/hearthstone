@@ -37,7 +37,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.compose
+        kotlinCompilerExtensionVersion = Dependencies.Versions.Compose.compose
     }
 }
 
@@ -49,24 +49,21 @@ dependencies {
     implementation(project(":cardservice:data"))
     implementation(project(":cardfeature"))
 
-    implementation(Dependencies.coreKTX)
-    implementation(Dependencies.material3)
-    implementation(Dependencies.animations)
-    implementation(Dependencies.composeUI)
-    implementation(Dependencies.composeToolingPreview)
-    implementation(Dependencies.composeViewModel)
-    implementation(Dependencies.composeNavigation)
-    implementation(Dependencies.koin)
+    implementation(Dependencies.Core.ktx)
 
-    testImplementation(Dependencies.junit)
-    testImplementation(Dependencies.mockk)
-    androidTestImplementation(Dependencies.mockkAndroid)
-    androidTestImplementation(Dependencies.androidJunitExt)
-    androidTestImplementation(Dependencies.androidEspressoCore)
-    androidTestImplementation(Dependencies.androidJunitCompose)
+    implementation(Dependencies.Compose.material)
+    implementation(Dependencies.Compose.animations)
+    implementation(Dependencies.Compose.compose)
+    implementation(Dependencies.Compose.preview)
+    implementation(Dependencies.Compose.viewmodel)
+    implementation(Dependencies.Compose.navigation)
 
-    debugImplementation(Dependencies.composeToolingDebug)
-    debugImplementation(Dependencies.composeUiTestManifest)
 
-    coreLibraryDesugaring(Dependencies.desugar)
+    testImplementation(Dependencies.Junit.junit)
+    androidTestImplementation(Dependencies.Junit.extension)
+    testImplementation(Dependencies.Mockk.mockk)
+    androidTestImplementation(Dependencies.Mockk.android)
+    androidTestImplementation(Dependencies.Compose.junit)
+
+    coreLibraryDesugaring(Dependencies.Others.desugar)
 }

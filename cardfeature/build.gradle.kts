@@ -24,7 +24,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.compose
+        kotlinCompilerExtensionVersion = Dependencies.Versions.Compose.compose
     }
 
     compileOptions {
@@ -39,20 +39,24 @@ dependencies {
     implementation(project(":commons"))
     implementation(project(":cardservice:domain"))
 
-    implementation(Dependencies.coreKTX)
-    implementation(Dependencies.koin)
-    implementation(Dependencies.koinCompose)
-    implementation(Dependencies.material3)
-    implementation(Dependencies.animations)
-    implementation(Dependencies.composeUI)
-    implementation(Dependencies.composeToolingPreview)
-    implementation(Dependencies.composeViewModel)
-    implementation(Dependencies.composeNavigation)
-    implementation(Dependencies.coil)
-    implementation(Dependencies.gson)
+    implementation(Dependencies.Core.ktx)
 
-    testImplementation(Dependencies.junit)
-    testImplementation(Dependencies.mockk)
-    androidTestImplementation(Dependencies.mockkAndroid)
-    androidTestImplementation(Dependencies.androidJunitExt)
+    implementation(Dependencies.Compose.material)
+    implementation(Dependencies.Compose.animations)
+    implementation(Dependencies.Compose.compose)
+    implementation(Dependencies.Compose.preview)
+    implementation(Dependencies.Compose.viewmodel)
+    implementation(Dependencies.Compose.navigation)
+
+    implementation(Dependencies.Others.coil)
+    implementation(Dependencies.Others.gson)
+
+
+    testImplementation(Dependencies.Junit.junit)
+    androidTestImplementation(Dependencies.Junit.extension)
+    testImplementation(Dependencies.Mockk.mockk)
+    androidTestImplementation(Dependencies.Mockk.android)
+    androidTestImplementation(Dependencies.Compose.junit)
+
+    coreLibraryDesugaring(Dependencies.Others.desugar)
 }

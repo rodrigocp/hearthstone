@@ -31,13 +31,12 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":network"))
 
-    implementation(Dependencies.coreKTX)
-    implementation(Dependencies.koin)
-    implementation(Dependencies.retrofit)
-    implementation(Dependencies.gson)
+    implementation(Dependencies.Core.ktx)
+    implementation(Dependencies.Retrofit.retrofit)
+    implementation(Dependencies.Others.gson)
 
-    testImplementation(Dependencies.junit)
-    testImplementation(Dependencies.mockk)
-    androidTestImplementation(Dependencies.mockkAndroid)
-    androidTestImplementation(Dependencies.androidJunitExt)
+    testImplementation(Dependencies.Junit.junit)
+    androidTestImplementation(Dependencies.Junit.extension)
+    testImplementation(Dependencies.Mockk.mockk)
+    androidTestImplementation(Dependencies.Mockk.android)
 }

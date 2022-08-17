@@ -52,16 +52,16 @@ android {
 dependencies {
     implementation(project(":core"))
     implementation(project(":commons"))
-    implementation(Dependencies.coreKTX)
-    implementation(Dependencies.kotlinCoroutinesCore)
-    implementation(Dependencies.koin)
-    implementation(Dependencies.retrofit)
-    implementation(Dependencies.gsonConverter)
-    implementation(Dependencies.loggingInterceptor)
+    implementation(Dependencies.Core.ktx)
+    implementation(Dependencies.Core.coroutines)
 
-    testImplementation(Dependencies.junit)
-    testImplementation(Dependencies.mockk)
-    testImplementation("org.json:json:20210307")
-    androidTestImplementation(Dependencies.mockkAndroid)
-    androidTestImplementation(Dependencies.androidJunitExt)
+    implementation(Dependencies.Retrofit.retrofit)
+    implementation(Dependencies.Retrofit.converter)
+    implementation(Dependencies.Retrofit.logging)
+
+    testImplementation(Dependencies.Junit.junit)
+    androidTestImplementation(Dependencies.Junit.extension)
+    testImplementation(Dependencies.Mockk.mockk)
+    androidTestImplementation(Dependencies.Mockk.android)
+    testImplementation(Dependencies.Others.json)
 }

@@ -28,11 +28,11 @@ android {
 
 dependencies {
     implementation(project(":core"))
-    implementation(Dependencies.coreKTX)
-    implementation(Dependencies.koin)
 
-    testImplementation(Dependencies.junit)
-    testImplementation(Dependencies.mockk)
-    androidTestImplementation(Dependencies.mockkAndroid)
-    androidTestImplementation(Dependencies.androidJunitExt)
+    implementation(Dependencies.Core.ktx)
+
+    testImplementation(Dependencies.Junit.junit)
+    androidTestImplementation(Dependencies.Junit.extension)
+    testImplementation(Dependencies.Mockk.mockk)
+    androidTestImplementation(Dependencies.Mockk.android)
 }

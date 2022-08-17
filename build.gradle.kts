@@ -7,6 +7,7 @@ buildscript {
     dependencies {
         classpath(Plugins.gradle)
         classpath(Plugins.kotlin)
+        classpath(Plugins.hilt)
     }
 }
 
