@@ -14,17 +14,19 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import br.com.rcp.hearthstone.domain.Card
 import coil.compose.rememberAsyncImagePainter
-import org.koin.androidx.compose.getViewModel
 
 @Composable
-fun CardDetailView(id: String) {
-    val cardViewModel: CardDetailViewModel = getViewModel()
-    val state by cardViewModel.state.collectAsState()
+fun CardDetailView(
+    cardDetailViewModel: CardDetailViewModel = hiltViewModel(),
+    id: String
+) {
+    val state by cardDetailViewModel.state.collectAsState()
 
     when (state) {
-        is CardDetailState.Idle -> { cardViewModel.send(CardDetailIntent.RefreshDetail(id)) }
+        is CardDetailState.Idle -> { cardDetailViewModel.send(CardDetailIntent.RefreshDetail(id)) }
         is CardDetailState.Loading -> LoadingDetails()
         is CardDetailState.Success -> CardDetails((state as CardDetailState.Success).information)
         is CardDetailState.Failure -> { }
@@ -55,7 +57,10 @@ fun CardDetails(detail: Card) {
         Text(text = "Custo: ${detail.cost}")
         Text(text = "Saúde: ${detail.health}")
         Image(
-            modifier = Modifier.padding(8.dp).size(512.dp).align(alignment = Alignment.CenterHorizontally),
+            modifier = Modifier
+                .padding(8.dp)
+                .size(512.dp)
+                .align(alignment = Alignment.CenterHorizontally),
             painter = rememberAsyncImagePainter(detail.image),
             contentDescription = detail.flavor
         )

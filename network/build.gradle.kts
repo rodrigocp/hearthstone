@@ -1,6 +1,8 @@
 plugins {
-    kotlin("android")
     id("com.android.library")
+    id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -58,6 +60,9 @@ dependencies {
     implementation(Dependencies.Retrofit.retrofit)
     implementation(Dependencies.Retrofit.converter)
     implementation(Dependencies.Retrofit.logging)
+    implementation(Dependencies.Hilt.android)
+
+    kapt(Dependencies.Hilt.compiler)
 
     testImplementation(Dependencies.Junit.junit)
     androidTestImplementation(Dependencies.Junit.extension)

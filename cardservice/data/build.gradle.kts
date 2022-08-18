@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -27,13 +29,16 @@ android {
 }
 
 dependencies {
-    implementation(project(":cardservice:domain"))
     implementation(project(":core"))
     implementation(project(":network"))
+    implementation(project(":cardservice:domain"))
 
     implementation(Dependencies.Core.ktx)
     implementation(Dependencies.Retrofit.retrofit)
     implementation(Dependencies.Others.gson)
+    implementation(Dependencies.Hilt.android)
+
+    kapt(Dependencies.Hilt.compiler)
 
     testImplementation(Dependencies.Junit.junit)
     androidTestImplementation(Dependencies.Junit.extension)

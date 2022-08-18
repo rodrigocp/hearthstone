@@ -10,7 +10,6 @@ java {
 
 dependencies {
     implementation(project(":core"))
-
     testImplementation(Dependencies.Junit.junit)
     testImplementation(Dependencies.Mockk.mockk)
 }

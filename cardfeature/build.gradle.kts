@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -40,17 +42,18 @@ dependencies {
     implementation(project(":cardservice:domain"))
 
     implementation(Dependencies.Core.ktx)
-
     implementation(Dependencies.Compose.material)
     implementation(Dependencies.Compose.animations)
     implementation(Dependencies.Compose.compose)
     implementation(Dependencies.Compose.preview)
     implementation(Dependencies.Compose.viewmodel)
     implementation(Dependencies.Compose.navigation)
-
     implementation(Dependencies.Others.coil)
     implementation(Dependencies.Others.gson)
+    implementation(Dependencies.Hilt.android)
+    implementation(Dependencies.Hilt.navigation)
 
+    kapt(Dependencies.Hilt.compiler)
 
     testImplementation(Dependencies.Junit.junit)
     androidTestImplementation(Dependencies.Junit.extension)

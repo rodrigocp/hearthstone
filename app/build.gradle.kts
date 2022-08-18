@@ -2,6 +2,8 @@ plugins {
     kotlin("android")
     id("kotlin-android")
     id("com.android.application")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -50,13 +52,15 @@ dependencies {
     implementation(project(":cardfeature"))
 
     implementation(Dependencies.Core.ktx)
-
     implementation(Dependencies.Compose.material)
     implementation(Dependencies.Compose.animations)
     implementation(Dependencies.Compose.compose)
     implementation(Dependencies.Compose.preview)
     implementation(Dependencies.Compose.viewmodel)
     implementation(Dependencies.Compose.navigation)
+    implementation(Dependencies.Hilt.android)
+
+    kapt(Dependencies.Hilt.compiler)
 
 
     testImplementation(Dependencies.Junit.junit)

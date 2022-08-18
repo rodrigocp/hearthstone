@@ -6,6 +6,6 @@ object Plugins {
     private object Versions {
         const val gradle = "7.2.2"
         const val kotlin = "1.7.0"
-        const val hilt   = "2.38.1"
+        const val hilt   = "2.42"
     }
 }

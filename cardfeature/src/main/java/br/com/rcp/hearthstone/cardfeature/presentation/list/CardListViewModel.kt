@@ -5,10 +5,13 @@ import androidx.lifecycle.viewModelScope
 import br.com.rcp.hearthstone.core.models.onFailure
 import br.com.rcp.hearthstone.core.models.onSuccess
 import br.com.rcp.hearthstone.repository.CardsRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
-class CardListViewModel(private val repository: CardsRepository) : ViewModel() {
+@HiltViewModel
+class CardListViewModel @Inject constructor(private val repository: CardsRepository) : ViewModel() {
     val state: MutableStateFlow<CardListState> get() = _state
     private val _state: MutableStateFlow<CardListState> = MutableStateFlow(CardListState.Idle)
 

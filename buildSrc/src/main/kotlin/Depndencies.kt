@@ -14,6 +14,12 @@ object Dependencies {
         val junit      by lazy { "androidx.compose.ui:ui-test-junit4:${Versions.Compose.compose}" }
     }
 
+    object Hilt {
+        val android    by lazy { "com.google.dagger:hilt-android:${Versions.Hilt.hilt}" }
+        val compiler   by lazy { "com.google.dagger:hilt-android-compiler:${Versions.Hilt.hilt}" }
+        val navigation by lazy { "androidx.hilt:hilt-navigation-compose:${Versions.Hilt.navigation}" }
+    }
+
     object Retrofit {
         val retrofit  by lazy { "com.squareup.retrofit2:retrofit:${Versions.Retrofit.retrofit}" }
         val logging   by lazy { "com.squareup.okhttp3:logging-interceptor:${Versions.Retrofit.logging}" }
@@ -45,9 +51,14 @@ object Dependencies {
 
         object Compose {
             const val compose    = "1.2.0"
-            const val viewmodel  = "2.4.1"
+            const val viewmodel  = "2.5.1"
             const val navigation = "2.5.1"
             const val material   = "1.0.0-alpha15"
+        }
+
+        object Hilt {
+            const val hilt       = "2.42"
+            const val navigation = "1.0.0"
         }
 
         object Retrofit {

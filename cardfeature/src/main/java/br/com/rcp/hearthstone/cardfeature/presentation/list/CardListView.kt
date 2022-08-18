@@ -17,18 +17,20 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import br.com.rcp.hearthstone.domain.Card
 import coil.compose.rememberAsyncImagePainter
-import org.koin.androidx.compose.getViewModel
 
 @Composable
-fun CardListView(controller: NavController) {
-    val cardViewModel: CardListViewModel = getViewModel()
-    val state by cardViewModel.state.collectAsState()
+fun CardListView(
+    cardListViewModel: CardListViewModel = hiltViewModel(),
+    controller: NavController
+) {
+    val state by cardListViewModel.state.collectAsState()
 
     when (state) {
-        is CardListState.Idle -> { cardViewModel.send(CardListIntent.RefreshList) }
+        is CardListState.Idle -> { cardListViewModel.send(CardListIntent.RefreshList) }
         is CardListState.Loading -> LoadingCards()
         is CardListState.Success -> CardsBack((state as CardListState.Success).collection, controller)
         is CardListState.Failure -> { }
@@ -53,9 +55,12 @@ fun CardsBack(data: List<Card>, controller: NavController) {
     ) {
         items(data) { card ->
             Image(
-                modifier = Modifier.padding(8.dp).size(128.dp).clickable {
-                    controller.navigate("cardDetail/${card.id}")
-                },
+                modifier = Modifier
+                    .padding(8.dp)
+                    .size(128.dp)
+                    .clickable {
+                        controller.navigate("cardDetail/${card.id}")
+                    },
                 painter = rememberAsyncImagePainter(card.image),
                 contentDescription = "Card`s Back"
             )

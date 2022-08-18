@@ -14,12 +14,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import br.com.rcp.hearthstone.cardfeature.presentation.detail.CardDetailView
 import br.com.rcp.hearthstone.cardfeature.presentation.list.CardListView
-import br.com.rcp.hearthstone.repository.CardsRepository
 import br.com.rcp.hearthstone.ui.theme.HearthstoneTheme
-import org.koin.android.ext.android.inject
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    val test : CardsRepository by inject()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -45,11 +44,11 @@ fun MainNavigationHost(
         modifier = modifier, navController = controller, startDestination = start
     ) {
         composable("cardListView") {
-            CardListView(controller)
+            CardListView(controller = controller)
         }
 
         composable("cardDetail/{id}") {
-            CardDetailView(it.arguments?.getString("id") ?: "")
+            CardDetailView(id = it.arguments?.getString("id") ?: "")
         }
     }
 }
